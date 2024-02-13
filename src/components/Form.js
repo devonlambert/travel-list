@@ -1,6 +1,6 @@
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
 
-export default function Form({initialItems}) {
+export default function Form({onAddItems}) {
     const [description, setDescription] = useState("")
     const [quantity, setQuantity] = useState(1)
 
@@ -10,10 +10,10 @@ export default function Form({initialItems}) {
         if (!description) return;
 
         const newItem = {
-        id: Date.now(), description, quantity, packed: false
+            id: Date.now(), description, quantity, packed: false
         }
 
-        initialItems.push(newItem)
+        onAddItems(newItem);
 
         setDescription("");
         setQuantity(1);
