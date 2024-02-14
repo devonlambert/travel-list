@@ -5,16 +5,20 @@ export default function Form({onAddItems, apiEndpoint}) {
     const [quantity, setQuantity] = useState(1)
 
 
+    // const handleAddItems = (item) => {
+    //     setItems((items) => [...items, item]);
+    // }
+
     const addNewItem = (itemToAdd) => {
 
         // POST this item to our DB
-        fetch(apiEndpoint, {
+        fetch("http://localhost:4000/items", {
             method: 'POST',
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(itemToAdd)
         }).then(() => {
-            // Add Item to STATE
-            onAddItems(itemToAdd);
+            // // Add Item to STATE
+            // onAddItems(itemToAdd);
 
             console.log("New Item added")
         })
