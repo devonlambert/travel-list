@@ -18,7 +18,7 @@ const useFetch = (url) => {
             .catch((err) => {
                 console.log(err.message)
             })
-    }, [url, data])
+    }, [url])
 
     return { data, isPending, error };
 }
