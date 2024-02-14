@@ -29,6 +29,36 @@
       "description": "Snacks",
       "quantity": 5,
       "packed": false
+    },
+    {
+      "id": 1707931005780,
+      "description": "Water Bottles",
+      "quantity": 6,
+      "packed": false
+    },
+    {
+      "id": 1707931054038,
+      "description": "Laptops",
+      "quantity": 3,
+      "packed": false
+    },
+    {
+      "id": 1707931104756,
+      "description": "Keyboards",
+      "quantity": 9,
+      "packed": false
+    },
+    {
+      "id": 1707943189555,
+      "description": "pencils",
+      "quantity": 7,
+      "packed": false
+    },
+    {
+      "id": 1707943205514,
+      "description": "pens",
+      "quantity": 5,
+      "packed": false
     }
   ]
 }

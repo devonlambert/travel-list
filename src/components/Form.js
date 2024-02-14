@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react'
 
-export default function Form({onAddItems, apiEndpoint}) {
+export default function Form({onAddData}) {
     const [description, setDescription] = useState("")
     const [quantity, setQuantity] = useState(1)
-
-
-    // const handleAddItems = (item) => {
-    //     setItems((items) => [...items, item]);
-    // }
 
     const addNewItem = (itemToAdd) => {
 
@@ -17,9 +12,6 @@ export default function Form({onAddItems, apiEndpoint}) {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(itemToAdd)
         }).then(() => {
-            // // Add Item to STATE
-            // onAddItems(itemToAdd);
-
             console.log("New Item added")
         })
     }
