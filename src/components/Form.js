@@ -1,8 +1,24 @@
 import { useState, useEffect } from 'react'
 
-export default function Form({onAddItems}) {
+export default function Form({onAddItems, apiEndpoint}) {
     const [description, setDescription] = useState("")
     const [quantity, setQuantity] = useState(1)
+
+
+    const addNewItem = (itemToAdd) => {
+
+        // POST this item to our DB
+        fetch(apiEndpoint, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(itemToAdd)
+        }).then(() => {
+            // Add Item to STATE
+            onAddItems(itemToAdd);
+
+            console.log("New Item added")
+        })
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -13,7 +29,7 @@ export default function Form({onAddItems}) {
             id: Date.now(), description, quantity, packed: false
         }
 
-        onAddItems(newItem);
+        addNewItem(newItem)
 
         setDescription("");
         setQuantity(1);

@@ -7,8 +7,10 @@ import Stats from './components/Stats'
 
 export default function App() {
 
+  const apiURL = "http://localhost:4000/items"
+
   useEffect(() => {
-    fetch("http://localhost:4000/items")
+    fetch(apiURL)
       .then(response => response.json())
       .then(items => setItems(items))
       .catch(err => console.log(err.message))
@@ -23,7 +25,7 @@ export default function App() {
   return (
     <div className="app">
       <Logo />
-      <Form onAddItems={handleAddItems} />
+      <Form onAddItems={handleAddItems} apiEndpoint={apiURL} />
       <PackingList items={items} />
       <Stats />
     </div>
