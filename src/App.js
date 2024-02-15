@@ -7,13 +7,13 @@ import Stats from './components/Stats'
 import useFetch from "./components/useFetch";
 
 export default function App() {
-  const { data, isPending, error } = useFetch("http://localhost:4000/items")
+  const { data, isPending, error, setData } = useFetch("http://localhost:4000/items")
 
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList items={data} />
+      <Form onAddData={setData} items={data} />
+      <PackingList items={data} onDeleteData={setData} />
       <Stats />
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Form({onAddData}) {
+export default function Form({onAddData, items}) {
     const [description, setDescription] = useState("")
     const [quantity, setQuantity] = useState(1)
 
@@ -12,6 +12,7 @@ export default function Form({onAddData}) {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(itemToAdd)
         }).then(() => {
+            onAddData([...items, itemToAdd])
             console.log("New Item added")
         })
     }
